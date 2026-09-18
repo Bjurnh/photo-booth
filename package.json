@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "server": "node server/index.js",
     "test": "vitest run",
-    "postinstall": "echo Postinstall skipped on Windows"
+    "postinstall": "chmod +x node_modules/.bin/* 2>/dev/null || true"
   },
   "dependencies": {
     "cors": "^2.8.5",
