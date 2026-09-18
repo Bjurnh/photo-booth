@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+:root {
+  --paper: #FBF3E7;
+  --ink: #22201D;
+  --film-black: #161513;
+  --flash-yellow: #FFD23F;
+  --coral: #FF6B5B;
+  --line: #D8CDBB;
+
+  --font-display: 'Archivo Black', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--film-black);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.screen {
+  width: 100vw;
+  height: 100vh; /* fallback for browsers without dvh support */
+  height: 100dvh; /* accounts for Safari's toolbar showing/hiding */
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  overflow: hidden;
+  position: relative;
+}
+
+.big-button {
+  border: none;
+  border-radius: 999px;
+  padding: clamp(14px, 3vw, 22px) clamp(24px, 6vw, 48px);
+  font-size: clamp(15px, 2.2vw, 22px);
+  font-weight: 700;
+  min-height: 52px;
+  min-width: 44px; /* minimum comfortable touch target */
+  background: var(--ink);
+  color: var(--paper);
+  transition: transform 0.12s ease;
+  white-space: nowrap;
+}
+
+.big-button:active {
+  transform: scale(0.96);
+}
+
+.big-button.accent {
+  background: var(--flash-yellow);
+  color: var(--ink);
+}
+
+.big-button.secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+}
+
+.shutter-button {
+  width: clamp(64px, 12vw, 88px);
+  height: clamp(64px, 12vw, 88px);
+  border-radius: 50%;
+  background: var(--paper);
+  border: clamp(4px, 1vw, 6px) solid var(--flash-yellow);
+  flex-shrink: 0;
+}
+
+/* Narrow screens (small windows, phones in portrait) - tighten spacing
+   so controls never get cramped or clipped. */
+@media (max-width: 480px) {
+  .big-button {
+    padding: 12px 18px;
+  }
+}
+
+.screen-heading {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 5vw, 32px);
+  margin: 0;
+}
+
+.sprocket-strip {
+  display: flex;
+  justify-content: space-around;
+  padding: 6px 0;
+  background: var(--film-black);
+}
+
+.sprocket-strip span {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--paper);
+  opacity: 0.6;
+}
